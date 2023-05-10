@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.core.annotation.Order;
-
 import java.util.Collection;
 
 @Data
@@ -15,17 +14,17 @@ import java.util.Collection;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "admin")
+@Table(name = "user_table")
 // @Component
 // @Where(clause = "roles_id = 1")
 // N(User) M(Roles)
-public class AdminEntity extends BaseEntity{
+public class UserEntity extends BaseEntity{
 
     @Id
     @Order(value = 1)
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "admin_id")
+    @Column(name = "user_id")
     private long id;
 
     private String name;
@@ -41,17 +40,17 @@ public class AdminEntity extends BaseEntity{
     /*
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
-            joinColumns = {@JoinColumn(name = "admin_id",referencedColumnName = "admin_id")},
+            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "roles_id",referencedColumnName = "roles_id")}
     )
     private List<RoleEntity> roles;
     */
 
     // 2.YOL Relation
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
     //@OrderBy
     //@OrderBy("rolesId DESC")
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(joinColumns = @JoinColumn(name = "admin_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Collection<RoleEntity> roles;
 
 }

@@ -1,6 +1,7 @@
-package com.burakkutbay.springboot_security_example.auth;
+package com.hamitmizrak.security;
 
-import com.burakkutbay.springboot_security_example.model.UserEntity;
+
+import com.hamitmizrak.data.entity.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,13 +28,12 @@ public class CustomUserDetail implements UserDetails {
         this.name=userEntity.getName();
         this.email=userEntity.getEmail();
         this.password=userEntity.getPassword();
-        this.roles=userEntity.getRoles().stream().map((role -> new SimpleGrantedAuthority(role.getRole_name()))).collect(Collectors.toList());
+        this.roles=userEntity.getRoles().stream().map((role -> new SimpleGrantedAuthority(role.getRoleName()))).collect(Collectors.toList());
         this.isAccountNonExpired=userEntity.isAccountNonExpired();
         this.isAccountNonLocked=userEntity.isAccountNonLocked();
         this.isCredentialsNonExpired=userEntity.isCredentialsNonExpired();
         this.isEnabled=userEntity.isEnabled();
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

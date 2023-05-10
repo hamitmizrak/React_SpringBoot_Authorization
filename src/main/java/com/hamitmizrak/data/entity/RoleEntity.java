@@ -1,17 +1,16 @@
-package com.burakkutbay.springboot_security_example.model;
+package com.hamitmizrak.data.entity;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Collection;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Entity
 @Table(name="roles")
 public class RoleEntity {
@@ -21,6 +20,8 @@ public class RoleEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="roles_id")
     private Long rolesId;
-    private String role_name;
+
+    @Column(name="role_name")
+    private String roleName;
 
 }

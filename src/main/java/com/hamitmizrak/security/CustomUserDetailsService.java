@@ -1,9 +1,8 @@
-package com.burakkutbay.springboot_security_example.auth;
+package com.hamitmizrak.security;
 
-import com.burakkutbay.springboot_security_example.model.UserEntity;
-import com.burakkutbay.springboot_security_example.repository.IUserRepository;
+import com.hamitmizrak.data.entity.UserEntity;
+import com.hamitmizrak.data.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

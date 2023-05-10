@@ -13,7 +13,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @Builder
 
-public class AdminDto {
+public class UserDto {
 
     private String name;
     private String surname;

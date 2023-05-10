@@ -1,6 +1,7 @@
-package com.burakkutbay.springboot_security_example.repository;
+package com.hamitmizrak.data.repository;
 
-import com.burakkutbay.springboot_security_example.model.RoleEntity;
+
+import com.hamitmizrak.data.entity.RoleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
